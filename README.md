@@ -76,7 +76,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  gh repo clone https://github.com/Zafron047/Blog_app_by_Rails.git
+  gh repo clone git@github.com:DevaWinner/blog-app.git
 ```
 
 ### Install
