@@ -1,1 +1,18 @@
-<h1>This is the index file for testing</h1>
+<% @users.each do |user| %>
+  <div class="container-sm" style="Margin-top: 20px">
+    <div class="card mb-3" style="border: none;">
+      <div class="row g-0" style="gap: 2.5%;">
+        <div class="col-md-4" style="width: 70px;">
+          <img src="<%= user.photo %>" class="img-fluid rounded" alt="User Photo">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body" style="border: 1px solid black; margin-top: 5px;">
+            <h5 class="card-title"><%= link_to user.name, user_path(user), style: "text-decoration: none;" %></h5>
+            <p class="card-text"><small class="text-muted">Number of posts: <%= user.posts_counter %></small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
