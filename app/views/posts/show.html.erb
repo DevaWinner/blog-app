@@ -1,10 +1,8 @@
-<div class="container">
-  <div class="card mb-3" style="max-width: 800px;">
+<div style="margin: 55px;">
+  <div class="card mb-3" style="width: 100%;">
     <div class="card-body text-success text-bg-light p-3">
       <div class="d-flex justify-content-between">
-        <div>
-          <h4><span class="card-title">Post <%= @post_id %></span> <span>by <%= @post.author.name %></span></h4>
-        </div>
+        <h4><span class="card-title">Post <%= @post_id %></span> <span>by <%= @post.author.name %></span></h4>
         <div>
           <span class="card-text">Comments: <%= @post.comments_counter%></span>
           <span class="card-text">Likes: <%= @post.likes_counter%></span>
@@ -14,7 +12,7 @@
     </div>
   </div>
   <% if @post.comments.any? %>
-    <div class="card mb-3" style="max-width: 800px;">
+    <div class="card mb-3" style="width: 100%;">
       <div class="card-body text-success text-bg-light p-3">
         <% @post.comments.each do |comment|%>
           <p class = "m-0"><strong><%= comment.author.name%></strong>:
