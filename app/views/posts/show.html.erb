@@ -2,24 +2,34 @@
   <div class="card mb-3" style="width: 100%;">
     <div class="card-body text-success text-bg-light p-3">
       <div class="d-flex justify-content-between">
-        <h4><span class="card-title">Post <%= @post_id %></span> <span>by <%= @post.author.name %></span></h4>
+        <h4 class="card-title PostAuthor">Post by <%= @post_id %><%= @post.author.name %></h4>
         <div>
           <span class="card-text">Comments: <%= @post.comments_counter%></span>
           <span class="card-text">Likes: <%= @post.likes_counter%></span>
         </div>
       </div>
-      <p class="card-text"><%= @post.text %></p>
+      <p class="card-text">
+        <small class="text-muted" style='font-size: 70%;'>
+          <%= @post.created_at.strftime("%B %d, %Y") %>
+        </small>
+      </p>
+      <p class="card-text PostTitle">Title: <%= @post.title %></p>
+      <p class="card-text">Text: <%= @post.text %></p>
     </div>
   </div>
   <% if @post.comments.any? %>
     <div class="card mb-3" style="width: 100%;">
       <div class="card-body text-success text-bg-light p-3">
         <% @post.comments.each do |comment|%>
-          <p class = "m-0"><strong><%= comment.author.name%></strong>:
+          <p class = "m-0 CommentsAuthor"><strong><%= comment.author.name%></strong>:
             <%= comment.text%>
           </p>
+          <p class="card-text">
+          <small class="text-muted" style='font-size: 50%;'>
+            <%= @post.created_at.strftime("%B %d, %Y, %T") %>
+          </small>
         <% end %>
       </div>
     </div>
   <% end %>
-</div>
+<div/>
