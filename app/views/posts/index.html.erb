@@ -19,7 +19,15 @@
       <div class="card-body text-success">
         <a href = <%= user_post_path(post.author.id, post.id) %> style="text-decoration: none;">
           <h5 class="card-title">Post <%= @posts.index(post) + 1%></h5>
-        </a>
+          <p class="card-text">
+            <small class="text-muted" style='font-size: 70%;'>
+              <%= post.created_at.strftime("%B %d, %Y") %>
+            </small>
+          </p>
+        </a>  
+        <p class="card-text">
+          <%= post.title %>
+        </p>
         <p class="card-text">
           <%= post.text %>
         </p>
