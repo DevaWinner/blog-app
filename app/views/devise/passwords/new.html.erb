@@ -1,0 +1,35 @@
+<style>
+  .form-control:hover {
+    border-color: #007bff;
+  }
+
+  .btn-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 80vh;">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Forgot your password?</h2>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+            </div>
+            <div class="text-center" style="margin-top: 20px;">
+              <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          <div class="text-center" style="margin-top: 20px; text-decoration: none;">
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
