@@ -103,6 +103,12 @@ rspec spec --format documentation
 - GitHub: [DevaWinner](https://github.com/DevaWinner)
 - Twitter: [WinnerDevq](https://twitter.com/WinnerDevq)
 - LinkedIn: [winnera](https://www.linkedin.com/in/winnera/)
+
+👤 **malikhaiderkhan**
+
+- GitHub: [@malikhaiderkhan](https://github.com/malikhaiderkhan)
+- Twitter: [@malikhaiderkha](https://twitter.com/malikhaiderkha)
+- LinkedIn: [@malikhaiderkhan](https://www.linkedin.com/in/malik-haider-khan-b53188140)
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
