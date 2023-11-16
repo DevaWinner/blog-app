@@ -15,6 +15,9 @@
       </p>
       <p class="card-text PostTitle">Title: <%= @post.title %></p>
       <p class="card-text">Text: <%= @post.text %></p>
+      <% if @post.author.id == current_user.id || current_user.admin? %>
+        <%= button_to 'Delete Post', user_post_path(@post.author, @post), method: :delete, class: 'btn btn-danger' %>
+      <% end %>
     </div>
   </div>
   <% if @post.comments.any? %>
@@ -24,6 +27,9 @@
           <p class = "m-0 CommentsAuthor"><strong><%= comment.author.name%></strong>:
             <%= comment.text%>
           </p>
+          <% if can? :destroy, comment %>
+            <%= button_to 'Delete', user_post_comment_path(@post.author, @post, comment), method: :delete, class: 'btn btn-light text-danger btn-sm'%>
+          <% end %>
           <p class="card-text">
           <small class="text-muted" style='font-size: 50%;'>
             <%= @post.created_at.strftime("%B %d, %Y, %T") %>

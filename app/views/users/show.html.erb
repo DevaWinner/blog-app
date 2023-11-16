@@ -18,9 +18,11 @@
     <div class="card-body text-Secondary text-bg-light p-3">
       <h5 class="card-title">Bio</h5>
       <p class="card-text"><%= @user.bio%></p>
-      <a href='<%=new_user_post_path(@user.id, @post)%>'>
-        <button type="button" class="btn btn-outline-primary">Create Post</button>
-      </a>
+      <% if @user == current_user %>
+        <a href='<%=new_user_post_path(@user.id, @post)%>'>
+          <button type="button" class="btn btn-outline-primary">Create Post</button>
+        </a>
+      <% end %>
     </div>
   </div>
   <% @recent_posts.each do |post|%>
@@ -34,9 +36,11 @@
         </a>
         <p class="card-text"><%= post.text %></p>
         <div class= "d-flex card-text" style="gap: 10px;">
-          <a href='<%= new_user_post_comment_path(user_id: post.author_id, post_id: post.id)%>' class="btn btn-primary mt-3">
-            <span>Comments</span>
-          </a>
+          <% if @user == current_user %>
+            <a href='<%= new_user_post_comment_path(user_id: post.author_id, post_id: post.id)%>' class="btn btn-primary mt-3">
+              <span>Comments</span>
+            </a>
+          <% end %>
           <a class="btn btn-primary mt-3">
             <%= form_for(post.likes.new, url: user_post_likes_path(post.author, post)) do |f| %>
               <%= f.hidden_field :author_id, value: @current_user %>
