@@ -4,7 +4,13 @@ RSpec.feature 'Post Show', type: :feature do
   let(:user) { User.create(name: 'Tom', bio: 'Teacher from Mexico.') }
   let(:post) { Post.create(author: user, title: 'Post Title', text: 'Post Text') }
 
-# Add here
+  before do
+    user.update(photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
+    Comment.create(author: user, post:, text: 'hello Tom')
+    Comment.create(author: user, post:, text: 'Thank You Tom')
+    Comment.create(author: user, post:, text: 'Good afternoon Tom')
+    Like.create(user:, post:)
+  end
 
   scenario "I can see the post's title, author, comments_counter, likes_counter, body, commentors name, " do
     visit user_post_path(post.author, post)
