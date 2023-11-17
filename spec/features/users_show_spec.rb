@@ -28,7 +28,7 @@ RSpec.feature 'User Show', type: :feature do
   end
 
   scenario 'asserts you can see the number of posts the user has written' do
-    expect(page).to have_content('3 Posts')
+    expect(page).to have_content('Number of posts: 3')
   end
 end
 
