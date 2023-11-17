@@ -20,17 +20,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @user = current_user
-    @comment = Comment.find(params[:id])
-
-    if @comment.author == @user
-      @comment.destroy
-      flash[:notice] = 'Deleted comment .'
-    end
-
-    redirect_to user_post_path
-  end
+  # Add here
 
   private
 
