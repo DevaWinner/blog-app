@@ -24,6 +24,14 @@ RSpec.feature 'Post Index', type: :feature do
     expect(page).to have_content('Likes: 1')
   end
 
+  scenario 'asserts a section for pagination if there are more posts than fit on the view' do
+    10.times do |i|
+      Post.create(author: user, title: "post #{i}", text: 'text')
+    end
+    visit user_posts_path(user)
+    expect(page).to have_selector('.pagination')
+  end
+
   scenario "When I click on a post, it redirects me to that post's show page and I can see first comment." do
     visit user_posts_path(user)
     first('.card-body a').click
