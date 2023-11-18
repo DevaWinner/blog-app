@@ -19,7 +19,13 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
-  # Add here
+  def update
+    if @comment.update(comment_params)
+      render json: @comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @comment.destroy
