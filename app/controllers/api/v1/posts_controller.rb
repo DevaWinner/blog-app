@@ -4,7 +4,10 @@ class Api::V1::PostsController < ApplicationController
     render json: @posts
   end
 
-  # Add here
+  def show
+    @post = @user.posts.find(params[:id])
+    render json: @post
+  end
 
   def set_user
     @user = User.find(params[:user_id])
