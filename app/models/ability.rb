@@ -15,7 +15,7 @@ class Ability
       end
 
       can :update, Comment do |comment|
-        comment.user == user
+        comment.author == user
       end
 
       can :destroy, Comment do |comment|
